@@ -1,0 +1,138 @@
+from __future__ import annotations
+
+from typing import Literal
+
+
+RuntimeSupport = Literal["direct", "indirect", "metadata_only"]
+
+
+# Sources selectable and runnable through SourceRegistry.filter_sources(...)
+DIRECT_RUNTIME_SOURCES = {
+    "alienvault_pulse",
+    "alienvault_otx",
+    "anubisdb",
+    "bevigil",
+    "bevigil_free",
+    "binaryedge",
+    "bufferover_dns",
+    "c99",
+    "censys",
+    "certspotter",
+    "chaos",
+    "circl_pdns",
+    "columbus",
+    "commoncrawl",
+    "commoncrawl_index",
+    "commoncrawl_mailto",
+    "crt.sh",
+    "ct_logs",
+    "ctsearch",
+    "digitorus",
+    "dnsbufferover",
+    "dnsdumpster",
+    "dnshistory",
+    "dnsrepo",
+    "dnsgrep",
+    "doh_wordlist",
+    "email_format",
+    "fofa",
+    "fullhunt",
+    "github_code",
+    "github_code_emails",
+    "github_commits",
+    "github_issues",
+    "google_ct",
+    "grep_app",
+    "hackertarget",
+    "hackertarget_dns",
+    "hackertarget_rev",
+    "hackertarget_subdomain",
+    "he_bgp",
+    "hunter_io",
+    "intelx",
+    "jldc",
+    "leakix",
+    "mnemonic_pdns",
+    "myssl",
+    "netcraft",
+    "omnisint",
+    "otx",
+    "otx_passive_dns",
+    "paste_sites",
+    "pgp_keys",
+    "phonebook",
+    "phonebook_subs",
+    "rapiddns",
+    "riddler",
+    "riskiq",
+    "security_txt",
+    "securitytrails",
+    "shrewdeye",
+    "sitedossier",
+    "skymem",
+    "sslmate_certs",
+    "subdomaincenter",
+    "sublist3r",
+    "target_page",
+    "threatbook",
+    # FIXED: keep SourceRegistry aligned with the direct enumerate() sources so these passive collectors do not get silently downgraded to metadata_only.
+    "trickest",
+    "urlhaus",
+    "urlscan",
+    "urlscan_pages",
+    "urlscan_subs",
+    "virustotal",
+    "vt_unauth",
+    "wayback",
+    "wayback_cdx",
+    "wayback_cdx_full",
+    "wayback_contacts",
+    "wayback_mailto",
+    "wayback_host_hints",
+    "wayback_snapshots",
+    "wayback_subdomains",
+    "whois_html",
+    "whoisxml",
+    "zoomeye",
+    "ctsearch_google",
+}
+
+
+# Sources used in runtime but not directly selectable via the registry-backed sources_map flow.
+INDIRECT_RUNTIME_SOURCES = {
+    "abuseipdb",
+    "bgpview",
+    "bing_search",
+    "crtsh_recent",
+    "docker_hub",
+    "github",
+    "github_org",
+    "github_repos",
+    "grayhatwarfare",
+    "greynoise",
+    "hackertarget_reverseip",
+    "hsts_preload",
+    "internetdb",
+    "ipinfo",
+    "itunes",
+    "npm",
+    "otx_ip",
+    "phishtank",
+    "pulsedive",
+    "shodan_internetdb",
+    "spamhaus_dbl",
+    "surbl",
+    "talos",
+    "threatfox",
+    "urlscan_social",
+    "urlscan_wappalyzer",
+}
+
+
+def runtime_support_for_source(source_name: str) -> RuntimeSupport:
+    name = str(source_name or "").strip()
+    if name in DIRECT_RUNTIME_SOURCES:
+        return "direct"
+    if name in INDIRECT_RUNTIME_SOURCES:
+        return "indirect"
+    return "metadata_only"
