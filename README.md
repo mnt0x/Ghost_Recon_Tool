@@ -37,11 +37,11 @@ python recon.py --no-browser
 
 ---
 <p align="center">
-  <img src="static/example_1.png" alt="Ghost Recon Tool logo" width="140">
+  <img src="static/example_1.png" alt="Ghost Recon Tool logo" width="800">
 </p>
 
 <p align="center">
-  <img src="static/example_2.png" alt="Ghost Recon Tool logo" width="140">
+  <img src="static/example_2.png" alt="Ghost Recon Tool logo" width="800">
 </p>
 
 
