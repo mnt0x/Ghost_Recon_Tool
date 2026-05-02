@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="static/logo.png" alt="Ghost Recon Tool logo" width="140">
+</p>
+
 # Ghost Recon Tool
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
