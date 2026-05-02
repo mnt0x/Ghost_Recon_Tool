@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="static/logo.png" alt="Ghost Recon Tool logo" width="1069">
+  <img src="static/logo.png" alt="Ghost Recon Tool logo" width="569">
 </p>
 
 # Ghost Recon Tool
